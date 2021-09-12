@@ -8,7 +8,7 @@ Cyclistic’s finance analysts have concluded that annual members are much more 
 The clear goal has been set: Design marketing strategies aimed at converting casual riders into annual members. In order to do that, however, the marketing analyst team needs to better understand how annual members and casual riders differ, why casual riders would buy a membership, and how digital media could affect their marketing tactics. Marketing team are interested in analyzing the Cyclistic historical bike trip data to identify trends.
 
 ## Dataset
-There are about ~5million data collected throughout 2020 to mid 2021. Initially data was splitted as separate csv file every month. The data has been combined to become a single csv file *'2020-2021_divvy_tripdata.csv'* and utilizing chunk operation to open the whole dataset for further analysis.
+There are about ~5million data collected throughout 2020 to mid 2021. Original data was split as separate csv file every month. The data has been combined to become a single csv file *'2020-2021_divvy_tripdata.csv'* and utilizing chunk operation to open the whole dataset for further analysis.
 
 ```python
 import pandas as pd
@@ -289,7 +289,7 @@ df6a.loc[(df6a['start_station_name'].isin(stat_pop)) & (df6a['end_station_name']
 .sort_values('count', ascending = False).head(5)
 
 ```
-![]()
+![](https://github.com/yudhi-chen/cyclistic_bike_EDA/blob/main/Images/fig2-member_casual_comparison_station.png)
 
 > #### *Key insight:*
 > * *8.5% of typical rider population (commute time < 521 hour) use top 5 station.*
@@ -316,7 +316,7 @@ fig.update_layout(xaxis_title="Days of week",
                          'yanchor': 'top'})
 fig.show()
 ```
-![]()
+![](https://github.com/yudhi-chen/cyclistic_bike_EDA/blob/main/Images/fig3-commute_time_average_daily_basis.png)
 
 ```python
 # Groupby 'member_casual' and days of week → find total count and reindex based on days category → plot
@@ -334,7 +334,7 @@ fig.update_layout(xaxis_title="Days of week",
                          'yanchor': 'top'})
 fig.show()
 ```
-![]()
+![](https://github.com/yudhi-chen/cyclistic_bike_EDA/blob/main/Images/fig4-ride_count_daily_basis.png)
 
 ```python
 # Groupby 'member_casual', year, and months → find total count and reindex based on months category → plot
@@ -357,7 +357,7 @@ fig.update_layout(xaxis_title="Months", xaxis_tickangle = 90,
                          'yanchor': 'top'})
 fig.show()
 ```
-![]()
+![](https://github.com/yudhi-chen/cyclistic_bike_EDA/blob/main/Images/fig5-ride_count_monthly_basis.png)
 
 ```python
 # Groupby 'member_casual', year, and hour → find total count and reindex based on hour category → plot
@@ -381,7 +381,7 @@ fig.update_layout(xaxis_title="Hour", xaxis_tickangle = 90,
                          'yanchor': 'top'})
 fig.show()
 ```
-![]()
+![image](https://github.com/yudhi-chen/cyclistic_bike_EDA/blob/main/Images/fig6-ride_count_hourly_basis.png)
 
 > #### *Key insight:*
 > * *Based on 2020-2021 data, Casual rider bike progressingly increased from early year peak around mid year, then climb down.*
@@ -389,12 +389,30 @@ fig.show()
 > * *From daily basis, casual rider tend to bike on weekend time whereas member rider constantly bike over the week.*
 > * *From hour basis, both casual and member rider typically start renting early morning at 5AM onward, peaked at 5PM, possibly after working hour commute.*
 
+## Key Takeaway
+Below are some fact to support the strategy of converting casual riders into annual membership.
+1. How do annual members and casual riders use Cyclistic bikes differently?
 
-```python
+   a. 40% of population are casual rider recorded from 2020 to mid 2021.<br>
+   b. Both rider prefer to rent docked bike.<br>
+   c. Casual rider most populated at Streeter Dr & Grand Ave station while member rider most populated at Clark St & Elm St station.<br>
+   d. Only small population rider commute from the same location (start and end) across the top 5 station.<br>
+   e. Casual rider rent bike more frequent toward weekend, while member rider relatively constantly.<br>
+   f. Casual rider bike progressingly increased from early year peak around mid year, then climb down, while member rider are quite fluctuative.<br> 
+   g. August is the best month of bike full utilization for both rider.<br>
+   h. Renting bike activity start picking up since early morning at 5AM onward, peaked at 5PM, possibly after working hour commute.
 
-```
+2. Why would casual riders buy Cyclistic annual memberships?
 
-![]()
+   a. Based on rider usage data from 2020 to mid 2021, 40% of population are casual rider potentially marketed for membership plan.<br>
+   b. Casual rider commute longer in average on daily basis (~0.7 hour) while member rider typically commute for 0.2 hour.<br>
+   c. Casual rider rent bike more frequent toward weekend, more than member rider.<br>
+   d. Compare to 2020, casual rider population increased since early year in 2021 (especially last 3months since April onward).<br> 
+   e. The casual rider user almost paired with member rider in June 2021.
+      
+3. How can Cyclistic use digital media to influence casual riders to become members?
 
-> #### *Key insight:*
-> * From context variable, we found potential 2,041,134 1TO casual rider (40% of 1TO population) to become member
+   a. Cyclistic can tweak the pricing or marketing strategy, i.e. by offering the package like point collection to become member after reach certain point.<br>
+   b. Pricing offer best to be published at evening time 5PM. Weekend seems potentially gain more traction.<br>
+   c. Seasonal offer around July-August might boost the marketing plan, not only the plan to attract casual rider to become member.<br>
+   d. Given any marketing plan need to move away from digital, Streeter Dr & Grand Ave station might be the best place to attract more casual rider.
